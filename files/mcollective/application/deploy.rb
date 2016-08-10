@@ -27,12 +27,6 @@ class MCollective::Application::Deploy<MCollective::Application
    def main
       deployclient  = rpcclient("deploy")
       puppetclient  = rpcclient("puppet")
-      serviceclient = rpcclient("service")
-
-      # Stop the application
-      printrpc serviceclient.stop(
-        :service => 'app_6000'
-      )
 
       # Deploy New Code
       printrpc deployclient.deploycode(
